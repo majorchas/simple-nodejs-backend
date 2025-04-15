@@ -1,6 +1,6 @@
-import expres from 'express';
+import express from 'express';
 
-const app= expres();
+const app= express();
 
 const port = 3300;
 
