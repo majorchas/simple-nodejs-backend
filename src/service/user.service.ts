@@ -4,22 +4,20 @@ const User = require("../models/User.model");
 module.exports.createSampleUser = async ({
   userName,
   userPassword,
+  userPasswordSalt,
 }: sampleUser) => {
-  try {
-    const newUser = new User({
-      username: userName,
-      password: userPassword,
-      salt: userPassword,
-    });
-    return await newUser.save();
-  } catch (exception) {
-    return "failed" + exception;
-  }
+  const newUser = new User({
+    username: userName,
+    password: userPassword,
+    salt: userPasswordSalt,
+  });
+  return await newUser.save();
 };
 
 interface sampleUser {
   userName: string;
   userPassword: string;
+  userPasswordSalt: string;
 }
 
 export {};
